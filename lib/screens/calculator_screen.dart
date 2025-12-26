@@ -82,8 +82,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       body: Column(
         children: [
           Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),
+            color: Colors.grey[300],
+            ),
             height: MediaQuery.of(context).size.height*0.3,
-            color: Colors.transparent,
+            
             alignment: Alignment.centerRight,
             padding: const EdgeInsets.all(16),
             child: Text(
