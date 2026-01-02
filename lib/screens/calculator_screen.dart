@@ -80,25 +80,27 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       appBar: AppBar(title: const Text("Basic Calculator",
       style: TextStyle(fontSize: 20),),
       centerTitle: true,),
-      body: Container(
-        height: MediaQuery.of(context).size.height*0.9,
-        child: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),
-              color: Colors.grey[300],
+      body: SafeArea(
+        child: Container(
+          height: MediaQuery.of(context).size.height*0.9,
+          child: Column(
+            children: [
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),
+                  color: Colors.grey[300],
+                  ),
+                  //height: MediaQuery.of(context).size.height*0.2,
+                  
+                  alignment: Alignment.centerRight,
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    displayText,
+                    style: const TextStyle(fontSize: 60),
+                  ),
+                ),
               ),
-              height: MediaQuery.of(context).size.height*0.2,
-              
-              alignment: Alignment.centerRight,
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                displayText,
-                style: const TextStyle(fontSize: 60),
-              ),
-            ),
-            Expanded(
-              child: Column(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Row(children: [buildButton('7'), buildButton('8'), buildButton('9'), buildButton('/')]),
@@ -108,8 +110,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                   SizedBox(height: 50,)
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
